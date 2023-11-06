@@ -13,9 +13,11 @@ mongoose.connect(process.env.MONGO_URL, {
 })
     .then(() => console.log('MongoDB is connected...'))
     .catch((error) => console.log(error));
-
-
 app.use("/", route)
+
+app.get('/', (req, res) => {
+    res.json("Challenge is completed")
+})
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
 });
