@@ -23,6 +23,7 @@ const createToken = async (req, res, data) => {
 
             // Update the existing token with the new access token
             existingUserToken.token = token;
+            existingUserToken.active = 1;
             await existingUserToken.save();
 
             // Generate a new refresh token
